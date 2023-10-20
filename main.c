@@ -16,13 +16,13 @@ int main(int na, char *av[])
 
 	if (na != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\c");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(av[1], "r");
 	if (fd == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\c", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -58,7 +58,7 @@ void run(char *string[], stack_t *stack)
 	for (ln = 1, n = 0; string[n + 1]; n++, ln++)
 	{
 		if (cmp("push", string[n]))
-			push(&stack, ln, push(string[n], ln));
+			push(&stack, ln, dragint(string[n], ln));
 		else if (cmp("nop", string[n]))
 			;
 		else
@@ -76,7 +76,7 @@ void run(char *string[], stack_t *stack)
 			if (cmp(st[a].opcode, "null") && !cmp(string[n], "\n"))
 			{
 				fprintf(stderr, "L%u: unknown instruction %s", ln, string[n]);
-				if (!nlfind(string[n]))
+				if (look(string[n]))
 					fprintf(stderr, "\n");
 				exit(EXIT_FAILURE);
 			}
