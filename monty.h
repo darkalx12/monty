@@ -1,5 +1,8 @@
-#ifndef __FREE__
-#define __FREE__
+#ifndef _MONTY_H_
+#define _MONTY_H_
+
+#define  _GNU_SOURCE
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,16 +43,16 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_num);
 } instruction_t;
 
-void pint(stack_t **stack, unsigned int line_num);
+void paint(stack_t **stack, unsigned int line_num);
 void stuck(stack_t *head);
 int dragint(char *list, int ln);
 int cmp(char *opcode, char *listed);
 void add(stack_t **stack, unsigned int line_num);
-void swap(stack_t **stack, unsigned int line_num);
+void change(stack_t **stack, unsigned int line_num);
 void pop(stack_t **stack, unsigned int line_num);
 void push(stack_t **stack, unsigned int line_number, int n);
-void pall(stack_t **stack, unsigned int line_num);
-void execute(char *string[], stack_t *stack);
+void pill(stack_t **stack, unsigned int line_num);
+void run(char *string[], stack_t *stack);
 int look(char *list);
 void list(char *b[]);
 int search(char *list, int ln);
