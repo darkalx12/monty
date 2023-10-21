@@ -10,11 +10,11 @@ void show_char(stack_t **stack, unsigned int line_number)
 	int asc;
 
 	if (stack == NULL || *stack == NULL)
-		string_err(11, line_number);
+		str_err(11, line_number);
 
 	asc = (*stack)->n;
 	if (asc < 0 || asc > 127)
-		string_err(10, line_number);
+		str_err(10, line_number);
 	printf("%c\n", asc);
 }
 

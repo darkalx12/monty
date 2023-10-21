@@ -56,7 +56,7 @@ void printout_stack(stack_t **, unsigned int);
 void push_to_stack(stack_t **, unsigned int);
 void added_to_queue(stack_t **, unsigned int);
 
-void call_fun(op_func, char *, char *, int, int);
+void calling_fun(op_func, char *, char *, int, int);
 
 void print_top(stack_t **, unsigned int);
 void remove_top(stack_t **, unsigned int);
@@ -76,7 +76,7 @@ void print_str(stack_t **, unsigned int);
 void roting(stack_t **, unsigned int);
 
 /*Error hanlding*/
-void wrong(int wrong_code, ...);
+void err(int wrong_code, ...);
 void more_err(int error_code, ...);
 void str_err(int error_code, ...);
 void rotate(stack_t **, unsigned int);

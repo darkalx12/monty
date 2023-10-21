@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * wrong - Prints appropiate error messages determined by their error code.
+ * err - Prints appropiate error messages determined by their error code.
  * @wrong_code: The wrong codes are the following:
  * (1) => The user does not give any file or more than one file to the program.
  * (2) => The file provided is not a file that can be opened or read.
@@ -12,7 +12,7 @@
  * (7) => When the stack it empty for pop.
  * (8) => When stack is too short for operation.
  */
-void wrong(int wrong_code, ...)
+void err(int wrong_code, ...)
 {
 	va_list ag;
 	char *op;
@@ -42,7 +42,7 @@ void wrong(int wrong_code, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	free_node();
 	exit(EXIT_FAILURE);
 }
 
@@ -83,7 +83,7 @@ void more_err(int error_code, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	free_node();
 	exit(EXIT_FAILURE);
 }
 
@@ -111,6 +111,6 @@ void str_err(int error_code, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	free_node();
 	exit(EXIT_FAILURE);
 }

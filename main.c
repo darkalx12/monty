@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
  * @n: Number to go inside the node.
  * Return: Upon sucess a pointer to the node. Otherwise NULL.
  */
-stack_t *create_node(int a)
+stack_t *create_node(int n)
 {
 	stack_t *node;
 
@@ -34,7 +34,7 @@ stack_t *create_node(int a)
 		err(4);
 	node->next = NULL;
 	node->prev = NULL;
-	node->a = a;
+	node->n = n;
 	return (node);
 }
 
