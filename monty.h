@@ -1,17 +1,13 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef MONTY_H
+#define MONTY_H
 
-#define  _GNU_SOURCE
-
-
+#define _GNU_SOURCE
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <sys/syscall.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdarg.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -20,13 +16,13 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,27 +31,54 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_num);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void paint(stack_t **stack, unsigned int line_num);
-void stuck(stack_t *head);
-int dragint(char *list, int ln);
-int cmp(char *opcode, char *listed);
-void add(stack_t **stack, unsigned int line_num);
-void change(stack_t **stack, unsigned int line_num);
-void pop(stack_t **stack, unsigned int line_num);
-void push(stack_t **stack, unsigned int line_number, int n);
-void pill(stack_t **stack, unsigned int line_num);
-void run(char *string[], stack_t *stack);
-int look(char *list);
-void list(char *b[]);
-int search(char *list, int ln);
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
 
+/*file operations*/
+void open(char *files_name);
+int sep_line(char *buffer, int line_number, int format);
+void say_file(FILE *);
+int len_chars(FILE *);
+void find_func(char *, char *, int, int);
+
+/*Stack operations*/
+stack_t *create_node(int a);
+void free_node(void);
+void printout_stack(stack_t **, unsigned int);
+void push_to_stack(stack_t **, unsigned int);
+void added_to_queue(stack_t **, unsigned int);
+
+void call_fun(op_func, char *, char *, int, int);
+
+void print_top(stack_t **, unsigned int);
+void remove_top(stack_t **, unsigned int);
+void nope(stack_t **, unsigned int);
+void change_nodes(stack_t **, unsigned int);
+
+/*Math operations with nodes*/
+void adding_nodes(stack_t **, unsigned int);
+void subbed_nodes(stack_t **, unsigned int);
+void divide_nodes(stack_t **, unsigned int);
+void multiple_nodes(stack_t **, unsigned int);
+void modded_nodes(stack_t **, unsigned int);
+
+/*String operations*/
+void show_char(stack_t **, unsigned int);
+void print_str(stack_t **, unsigned int);
+void roting(stack_t **, unsigned int);
+
+/*Error hanlding*/
+void wrong(int wrong_code, ...);
+void more_err(int error_code, ...);
+void str_err(int error_code, ...);
+void rotate(stack_t **, unsigned int);
 
 #endif
