@@ -88,9 +88,9 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"push", push_to_stack},
 		{"pall", printout_stack},
 		{"pint", print_top},
-		{"remove", remove_top},
-		{"nope", nope},
-		{"change", change_nodes},
+		{"pop", remove_top},
+		{"nop", nope},
+		{"swap", change_nodes},
 		{"add", adding_nodes},
 		{"sub", subbed_nodes},
 		{"div", divide_nodes},
@@ -99,7 +99,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pchar", show_char},
 		{"pstr", print_str},
 		{"rotl", roting},
-		{"rotate", rotate},
+		{"rotr", rotate},
 		{NULL, NULL}
 	};
 
